@@ -10,6 +10,7 @@ const buttons = {
   startButton: document.querySelector('[data-start]'),
   stopButton: document.querySelector('[data-stop]'),
 };
+buttons.stopButton.disabled = true;
 // start switching colors
 buttons.startButton.addEventListener('click', handlerStartColorSwitch);
 function handlerStartColorSwitch() {

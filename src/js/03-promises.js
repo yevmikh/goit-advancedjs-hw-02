@@ -20,7 +20,7 @@ formSubmit.addEventListener('submit', handleFormSubmit);
 
 function handleFormSubmit(event) {
   event.preventDefault();
-
+  formSubmit.disabled = true;
   const delayInput = document.querySelector(
     'input[name="delay"]'
   ).valueAsNumber;
@@ -47,4 +47,6 @@ function handleFormSubmit(event) {
         console.log(`❌ Rejected promise ${position} in ${delay} ms`);
       });
   }
+
+  formSubmit.reset();
 }

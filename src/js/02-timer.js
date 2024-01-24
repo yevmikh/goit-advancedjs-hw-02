@@ -26,6 +26,8 @@ const hoursElement = document.querySelector('[data-hours]');
 const minutesElement = document.querySelector('[data-minutes]');
 const secondsElement = document.querySelector('[data-seconds]');
 
+startButton.disabled = true;
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -53,6 +55,7 @@ startButton.addEventListener('click', handlerStartTimer);
 function handlerStartTimer() {
   const targetDate = new Date(datetimePicker.value).getTime();
   startButton.disabled = true;
+  datetimePicker.disabled = true;
 
   // refreshing timer by seconds
   const timerInterval = setInterval(() => {
@@ -66,6 +69,7 @@ function handlerStartTimer() {
         message: 'Time is up!',
       });
       startButton.disabled = false;
+      datetimePicker.disabled = false;
     } else {
       const { days, hours, minutes, seconds } = convertMs(remainingTime);
       daysElement.textContent = addZero(days);
